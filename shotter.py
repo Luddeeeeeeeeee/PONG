@@ -3,9 +3,9 @@ from pygame import *
 from player import Shotter
 
 class Game:
-    def __init__(self) -> None:
-        player_sprite = Shotter
-        self.player = pygame.sprite.Group(Shotter)
+    def __init__(self):
+        player_sprite = Shotter((250,250))
+        self.player = pygame.sprite.GroupSingle(player_sprite)
 
     def run(self):
         self.player.draw(scren)
@@ -13,14 +13,16 @@ class Game:
 scren = pygame.display.set_mode((500,500))
 Clock = pygame.time.Clock()
 run = True
-game = Game
+game = Game()
 
 while run:
     for event in pygame.event.get():
         if event.type == QUIT:
             run = False
+    scren.fill((255,5,9))        
     game.run()
-    scren.fill((255,5,9))
+    pygame.display.flip()
+    
     Clock.tick(60)
    
 
