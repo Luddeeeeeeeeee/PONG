@@ -7,11 +7,12 @@ class Game:
     def __init__(self):
         player_sprite = PLayer()
         self.player = pygame.sprite.GroupSingle(player_sprite)
+        self.player2 = pygame.sprite.GroupSingle(player_sprite)
     def run(self):
-
         self.player.update()
+        self.player2.update()
         self.player.draw(screen)
-        
+        self.player2.draw(screen)
 
 run = True
 Clock = pygame.time.Clock()

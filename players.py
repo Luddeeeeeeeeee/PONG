@@ -13,10 +13,16 @@ class PLayer(pygame.sprite.Sprite):
         keys = pygame.key.get_pressed()
 
         if keys[pygame.K_UP]:
-            self.rect.y += 5
+            self.rect.y -= 5
 
         if keys[pygame.K_DOWN]:
+            self.rect.y += 5
+
+        if keys[pygame.K_w]:
             self.rect.y -= 5
+
+        if keys[pygame.K_s]:
+            self.rect.y += 5
 
     def update(self) -> None:
         self.input()
