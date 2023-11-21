@@ -7,7 +7,7 @@ class PLayer(pygame.sprite.Sprite):
         super().__init__()
         self.image = pygame.image.load("PONG.png").convert_alpha()
         self.rect = self.image.get_rect()
-        self.rect.center = 350,350
+        self.rect.center = 500,350
 
     def input(self):
         keys = pygame.key.get_pressed()
@@ -18,11 +18,6 @@ class PLayer(pygame.sprite.Sprite):
         if keys[pygame.K_DOWN]:
             self.rect.y += 5
 
-        if keys[pygame.K_w]:
-            self.rect.y -= 5
-
-        if keys[pygame.K_s]:
-            self.rect.y += 5
 
     def update(self) -> None:
         self.input()

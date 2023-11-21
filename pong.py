@@ -1,18 +1,19 @@
 import pygame
 from pygame import *
-from players import PLayer
-
+from player1 import PLayer
+from player2 import Player
 
 class Game:
     def __init__(self):
         player_sprite = PLayer()
-        self.player = pygame.sprite.GroupSingle(player_sprite)
-        self.player2 = pygame.sprite.GroupSingle(player_sprite)
+        player_sprite2 = Player()
+        self.player1 = pygame.sprite.GroupSingle(player_sprite)
+        self.player2 = pygame.sprite.GroupSingle(player_sprite2)
     def run(self):
-        self.player.update()
         self.player2.update()
-        self.player.draw(screen)
+        self.player1.update()
         self.player2.draw(screen)
+        self.player1.draw(screen)
 
 run = True
 Clock = pygame.time.Clock()
