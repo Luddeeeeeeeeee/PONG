@@ -8,7 +8,10 @@ class Game:
         player_sprite = PLayer()
         self.player = pygame.sprite.GroupSingle(player_sprite)
     def run(self):
+
+        self.player.update()
         self.player.draw(screen)
+        
 
 run = True
 Clock = pygame.time.Clock()
