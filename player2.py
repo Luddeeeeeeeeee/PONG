@@ -1,4 +1,4 @@
-from typing import Any
+
 import pygame
 
 
@@ -11,8 +11,7 @@ class Player(pygame.sprite.Sprite):
 
     def input(self):
         keys = pygame.key.get_pressed()
-        mouse = pygame.mouse.get_pos()
-        print(mouse)
+
         if keys[pygame.K_w]:
             self.rect.y -= 5
 

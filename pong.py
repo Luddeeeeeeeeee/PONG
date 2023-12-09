@@ -8,15 +8,31 @@ class Game:
     def __init__(self):
         player_sprite = PLayer()
         player_sprite2 = Player()
-        ball =  Ball()
+        ball_sprite =  Ball()
         self.player1 = pygame.sprite.GroupSingle(player_sprite)
         self.player2 = pygame.sprite.GroupSingle(player_sprite2)
-        self.Bell = pygame.sprite.GroupSingle(ball)
+        self.Ball = pygame.sprite.GroupSingle(ball_sprite)
+        self.player1_score = 0
+        self.player2_score = 0
+        self.recently_hit = 0
+    def collison_and_score(self):
+        if pygame.sprite.spritecollide(self.player1.sprite,self.Ball,False) :
+            self.Ball.sprite.ball_speed_x *= -1
+            self.recently_hit = 1
+        if pygame.sprite.spritecollide(self.player2.sprite,self.Ball,False) :
+            self.Ball.sprite.ball_speed_x *= -1
+            self.recently_hit = 0
+
+        if self.recently_hit == 1 and self.Ball.sprite.rect.x <= 2:
+            self.player1_score += 1
+        
+        print(self.player1_score)
     def run(self):
+        self.collison_and_score()
         self.player2.update()
         self.player1.update()
-        self.Bell.update()
-        self.Bell.draw()
+        self.Ball.update()
+        self.Ball.draw(screen)
         self.player2.draw(screen)
         self.player1.draw(screen)
 
