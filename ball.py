@@ -13,7 +13,7 @@ class Ball(pygame.sprite.Sprite):
         self.rect.x += self.ball_speed_x
         self.rect.y += self.ball_speed_y
 
-        if self.rect.bottom >= 700 or self.rect.top <= 0:
+        if self.rect.bottom >= 710 or self.rect.top <= -10:
             self.ball_speed_y *= -1
 
         if self.rect.x >= 700 or self.rect.x <= 0:
