@@ -51,7 +51,7 @@ class Game:
     def start_screen(self):
         text = self.my_font.render("Press Space to start", False, (255, 255, 255))
         screen.blit(text, (150,350))
-print
+
 run = True
 Clock = pygame.time.Clock()
 screen = pygame.display.set_mode((700,700))
